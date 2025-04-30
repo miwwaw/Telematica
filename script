@@ -1,0 +1,8 @@
+echo "FROM python:3" > Dockerfile
+echo "RUN pip install Flask" >> Dockerfile
+echo "WORKDIR /home/app" >> Dockerfile
+echo "COPY server.py ." >> Dockerfile
+echo "EXPOSE 8080" >> Dockerfile
+echo "CMD python3 /home/app/server.py" >> Dockerfile
+docker build -t sample .
+docker run -t -d -p 8080:8080 --name samrun sample
